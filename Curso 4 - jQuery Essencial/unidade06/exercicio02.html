@@ -11,11 +11,8 @@
         <script>
 			$(function(e) {
                 
-                $('#janela').hide();
-                
-                $('#mostrar').click( mostrarElemento);
-                
-                $('#esconder').click( esconderElemento);
+                $('#janela').hide();                
+                $('#mostrar').hover( mostrarElemento, esconderElemento);
             });
             
             function mostrarElemento(e){
@@ -31,7 +28,6 @@
 
     <body>
         <input type="button" id="mostrar" 	value="Mostrar" />
-        <input type="button" id="esconder" 	value="Esconder" />
         
         <div id="janela"></div>
     </body>
