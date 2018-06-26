@@ -4,7 +4,18 @@
         <meta charset="UTF-8">
         <title>Curso jQuery Fundamental</title>
         <style>
-			#janela { position:absolute; height:200px;  }
+            #principal { 
+                position: absolute; 
+                height: 200px; 
+                width: 200px;
+                clip: rect(0 200px 200px 0);
+            }
+			#janela { 
+                position:absolute; 
+                height:200px; 
+                top: 0;left: 0;
+            }
+            #janela img { float:left }
 		</style>
         
         <script src="jquery-3.3.1.min.js"></script>       
@@ -12,21 +23,22 @@
             function moverFotos() {
                 $('#janela').animate({left:"-=200"},1000);
             }
-            
-			$( function() {
-                setInterval(moverFotos, 2000)
-                
+
+			$(function() {
+                setInterval(moverFotos, 2000);
 			});	
 		</script>        
     </head>
 
     <body>
-        <div id="janela">
-            <img src="imagens/foto1.jpg">
-            <img src="imagens/foto2.jpg">
-            <img src="imagens/foto3.jpg">
-            <img src="imagens/foto4.jpg">
-            <img src="imagens/foto5.jpg">
+        <div id="principal">
+            <div id="janela">
+                <img src="imagens/foto1.jpg">
+                <img src="imagens/foto2.jpg">
+                <img src="imagens/foto3.jpg">
+                <img src="imagens/foto4.jpg">
+                <img src="imagens/foto5.jpg">
+            </div>
         </div>
     </body>
 
