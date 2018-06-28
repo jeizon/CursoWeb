@@ -1,12 +1,34 @@
-<html>
+<!DOCTYPE html>
     <head>
+        <meta charset="utf-8">
         <title>Curso de EcmaScript 6.0</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.min.js"></script>
+        <style type="text/css">
+            
+            section div {
+                height: 100px;
+                width: 100px;
+                background-color: blue;
+                border-radius: 50%;
+                float: left;
+                margin: 5px;
+                cursor: pointer;
+            }
+        </style>
+        
         <script type="text/babel">
-
+            for (let i=0; i < 10; i++) {
+               var div = document.createElement('div');
+                div.onclick = function() {
+                    alert("Você clicou no elemento número " + i);
+                } 
+            document.getElementsByTagName('section')[0].appendChild(div);
+            }
+            
         </script>
     </head>
     <body>
-    
+        <section>
+        </section>
     </body>
 </html>
