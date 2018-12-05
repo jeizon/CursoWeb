@@ -21,12 +21,19 @@ $(document).ready(function () {
             function (data) {
                 var imagem;
                 var arquivo;
-                $.each(data.items, function (i, items) {
-                    imagem = items.snippet.thumbnails.medium.url;
-                    titulo = items.snippet.title;
-                    arquivo = '<li class="principal"><div class="foto"> <img src=" ' + imagem + ' "><div class="legenda"><h5> ' + titulo + ' </h5></div> </div></li>';
+                $.each(data.items, function (i, item) {
+                    imagem = item.snippet.thumbnails.medium.url;
+                    titulo = item.snippet.title;
+                    publicado = formatarData(item.snippet.publishedAt);
+                    descricao = item.snippet.description;
+                    arquivo = '<li class="principal"><div class="foto"> <img src=" ' + imagem + ' "><div class="legenda"><h5> ' + titulo + ' </h5><p> ' + publicado+ ' </p></div> </div></li>';
                     $('div#janela ul').append(arquivo);
                 });
             }
-        )}
+            )
+    }
+
+    function formatarData(data) {
+        return data.substr(8,2) + '/' + data.substr(5,2) + '/' + data.substr(0,4);
+    }
 });
