@@ -1,13 +1,14 @@
-var nomeCanal = 'backtotriangle';
+var nomeCanal = 'einerdtv';
 var upload_id;
 
 $(document).ready(function() {
     $.get("https://www.googleapis.com/youtube/v3/channels", {
             part: 'contentDetails',
             forUsername: nomeCanal,
-            key: 'AIzaSyB49WfTkgfK2menTbmVCkLG0f9cYWQ9XKU'},
+            key: 'AIzaSyCke91lY6SnYELGZ_6BPxvlEThhVo2lDk8'},
             function(data) {
                 upload_id = data.items[0].contentDetails.relatedPlaylists.uploads;
+                console.log(upload_id);
                 pegarVideos(upload_id);
             }
     )
@@ -17,14 +18,15 @@ $(document).ready(function() {
                     part:'snippet',
                     maxResults: 12,
                     playlistId: id,
-                    key: 'AIzaSyB49WfTkgfK2menTbmVCkLG0f9cYWQ9XKU'},
+                    key: 'AIzaSyCke91lY6SnYELGZ_6BPxvlEThhVo2lDk8'},
             function(data) {
                 var imagem;
                 var arquivo;
                 
                 $.each(data.items, function(i, item) {
                     videoId     = item.snippet.resourceId.videoId;
-                    arquivo = '<li></li>';
+                    arquivo = '<li><iframe width="320" height="180" src="https://www.youtube.com/embed/' + videoId + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>';
+                    console.log(arquivo);
                     $('div#janela ul').append(arquivo);
                 });
             }
