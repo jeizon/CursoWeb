@@ -1,6 +1,7 @@
 <?php
     $salario = 800;
-    $gasolina = 2.79;
+    $gasolina = 2.79932;
+    $nome = "Jeizon"
 ?>
 
 <!doctype html>
@@ -15,12 +16,25 @@
         
         <?php
             // testar se é numérica
-
+            echo "O $salario é um numero? " . is_numeric($salario) . "<br>";
+            echo "O $gasolina é um numero? " . is_numeric($gasolina) . "<br>";
+            echo "O $nome é um numero? " . is_numeric($nome) . "<br><br>";
 
             // testar se é inteiro
-
+        echo "O $salario é um inteiro? " . is_int($salario) . "<br>";
+        echo "O $gasolina é um inteiro? " . is_int($gasolina) . "<br><br>";
 
             // testar se é float
+        echo "O $salario é um float? " . is_float($salario) . "<br>";
+        echo "O $gasolina é um float? " . is_float($gasolina) . "<br><br>";
+
+        echo round($gasolina) . "<br>";
+
+        //Sempre arredonda pra baixo
+        echo floor($gasolina) . "<br>";
+
+        // Sempre arredonda pra cima
+        echo ceil($gasolina) . "<br>";
         ?>
         
         
