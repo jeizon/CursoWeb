@@ -5,6 +5,11 @@
         <title>Curso PHP FUNDAMENTAL</title>
     </head>
 
-    <body> 
+    <body>
+    <?php
+        $salada = array("Laranja","Maça","Abacate");
+        $fruta = $_GET["codigo"];
+        echo $salada[$fruta];
+    ?>
     </body>
 </html>
