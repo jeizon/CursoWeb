@@ -6,16 +6,22 @@
     </head>
 
     <body>
-    <pre>
+
         <?php
-            print_r($_POST);
-        ?>
-        <?php
-            $nome = $_POST["nome"];
-            $email = $_POST["email"];
+            if (isset($_POST["nome"])) {
+                $nome = $_POST["nome"] . "<br>";
+            } else {
+                $nome = "Sem Definição" . "<br>";
+            }
+            if (isset($_POST["email"])) {
+                $email = $_POST["email"] . "<br>";
+            } else {
+                $email = "Sem Definição" . "<br>";
+            }
+
             echo "Meu nome: " . $nome . "<br>";
             echo "Meu email: " . $email . "<br>";
         ?>
-    </pre>
+
     </body>
 </html>
