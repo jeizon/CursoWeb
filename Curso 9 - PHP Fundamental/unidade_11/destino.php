@@ -8,17 +8,9 @@
     <body>
 
         <?php
-            if (isset($_POST["nome"])) {
-                $nome = $_POST["nome"] . "<br>";
-            } else {
-                $nome = "Sem Definição" . "<br>";
-            }
-            if (isset($_POST["email"])) {
-                $email = $_POST["email"] . "<br>";
-            } else {
-                $email = "Sem Definição" . "<br>";
-            }
-
+            $nome = isset($_POST["nome"]) ? $_POST["nome"] : "Sem Definição";
+            $email = isset($_POST["email"]) ? $_POST["email"] : "Sem Definição";
+            
             echo "Meu nome: " . $nome . "<br>";
             echo "Meu email: " . $email . "<br>";
         ?>
