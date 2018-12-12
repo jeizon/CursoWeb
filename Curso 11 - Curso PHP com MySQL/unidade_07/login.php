@@ -1,5 +1,13 @@
 <?php require_once("../../db/conexao.php"); ?>
-
+<?php
+	if ( isset( $_POST["usuario"] ) ) {
+		$usuario = $_POST["usuario"];
+		$senha = $_POST["senha"];
+		
+		echo $usuario . "<br>";
+		echo $senha . "<br>";
+	}
+?>
 <!doctype html>
 <html>
     <head>
