@@ -1,12 +1,7 @@
 <?php require_once("../../db/conexao.php"); ?>
 <?php
-	// iniciar a sessão
 	session_start();
-	
-	// Criar uma variavel de sessão
-	$_SESSION["usuario"] = "Jeizon";
 ?>
-
 <!doctype html>
 <html>
     <head>
@@ -25,13 +20,14 @@
             </div>
         </header>
         
-        <main>
+        <main>  
 			<?php
-				echo $_SESSION["usuario"];
+				// Excluir a variavel de sessao mencionada.
+				unset($_SESSION["usuario"]);
+				
+				// Destroi todas as variaveis de sessao da app
+				session_destroy();
 			?>
-			<p>
-				<a href="pagina2.php">Pagina 2</a>
-			</p>
         </main>
 
         <footer>

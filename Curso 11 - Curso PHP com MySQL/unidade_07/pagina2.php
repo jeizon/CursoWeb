@@ -1,5 +1,7 @@
-<?php require_once("../../conexao/conexao.php"); ?>
-
+<?php require_once("../../db/conexao.php"); ?>
+<?php
+	session_start();
+?>
 <!doctype html>
 <html>
     <head>
@@ -18,8 +20,15 @@
             </div>
         </header>
         
-        <main>  
-            
+        <main>
+			<?php
+				if ( isset($_SESSION["usuario"]) ) {
+					echo $_SESSION["usuario"];
+				}
+			?>
+			<p>
+				<a href="logout.php">Logout</a>
+			</p>
         </main>
 
         <footer>
