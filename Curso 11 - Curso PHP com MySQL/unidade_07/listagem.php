@@ -2,7 +2,9 @@
 
 <?php
 	session_start( );
-	
+	if ( !isset($_SESSION["user_portal"]) ) {
+		header("location:login.php");
+	}
     // Determinar localidade BR
     setlocale(LC_ALL, 'pt_BR');
 

@@ -1,5 +1,12 @@
 <?php require_once("../../db/conexao.php"); ?>
 <?php
+	// teste de seguranca
+	session_start( );
+	if ( !isset($_SESSION["user_portal"]) ) {
+		header("location:login.php");
+	}
+	// fim do teste de seguranca
+	
     if ( isset($_GET["codigo"]) ) {
         $produto_id = $_GET["codigo"];
     } else {
