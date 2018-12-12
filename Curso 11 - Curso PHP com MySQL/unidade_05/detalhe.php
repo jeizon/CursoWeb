@@ -17,6 +17,15 @@
 		die("Falha no Banco de Dados. ");
 	} else {
 		$dados_detalhe = mysqli_fetch_assoc($detalhe);
+		$produtoID 		= $dados_detalhe["produtoID"];
+		$nomeproduto 	= $dados_detalhe["nomeproduto"];
+		$descricao 		= $dados_detalhe["descricao"];
+		$codigobarra 	= $dados_detalhe["codigobarra"];
+		$tempoentrega 	= $dados_detalhe["tempoentrega"];
+		$precorevenda 	= $dados_detalhe["precorevenda"];
+		$precounitario 	= $dados_detalhe["precounitario"];
+		$estoque 		= $dados_detalhe["estoque"];
+		$imagemgrande 	= $dados_detalhe["imagemgrande"];
 	}
 ?>
 <!doctype html>
@@ -32,10 +41,19 @@
     <body>
         <?php include_once("_incluir/topo.php"); ?>
         
-        <main>  
-			<?php
-				print_r($dados_detalhe);
-			?>
+        <main>
+			<div id="detalhe_produto">
+				<ul>
+					<li><img src="<?php echo $imagemgrande ?>"></li>
+					<li><?php echo $nomeproduto ?></li>
+					<li>Descricao: <?php echo $descricao ?></li>
+					<li>Codigo Barras: <?php echo $codigobarra ?></li>
+					<li>Entrega: <?php echo $tempoentrega ?></li>
+					<li><?php echo $precorevenda ?></li>
+					<li><?php echo $precounitario ?></li>
+					<li><?php echo $estoque ?></li>
+				</ul>
+			</div>
         </main>
 
         <?php include_once("_incluir/rodape.php"); ?>
