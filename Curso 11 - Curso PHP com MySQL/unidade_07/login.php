@@ -1,5 +1,7 @@
 <?php require_once("../../db/conexao.php"); ?>
 <?php
+	// adicionar variaveis de sessao
+	session_start();
 	if ( isset( $_POST["usuario"] ) ) {
 		$usuario = $_POST["usuario"];
 		$senha = $_POST["senha"];
@@ -18,6 +20,7 @@
 		if ( empty($informacao) ) {
 			$mensagem = "Login sem sucesso :'(";
 		} else {
+			$_SESSION["user_portal"] = $informacao["clienteID"];
 			header("location:listagem.php");
 		}
 	}

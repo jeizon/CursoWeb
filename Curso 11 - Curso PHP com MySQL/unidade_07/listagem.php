@@ -1,6 +1,8 @@
 <?php require_once("../../db/conexao.php"); ?>
 
 <?php
+	session_start( );
+	
     // Determinar localidade BR
     setlocale(LC_ALL, 'pt_BR');
 
@@ -41,6 +43,9 @@
             
             <div id="listagem_produtos"> 
             <?php
+				if ( isset($_SESSION["user_portal"]) ) {
+					echo $_SESSION["user_portal"];
+				}
                 while($linha = mysqli_fetch_assoc($resultado)) {
             ?>
                 <ul>
