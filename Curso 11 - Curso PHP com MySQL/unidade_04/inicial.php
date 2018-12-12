@@ -28,6 +28,7 @@
 				
 			?>
 				<ul>
+					<li><img src="<?php echo $linha["imagempequena"] ?>"></li>
 					<li><?php echo $linha["nomeproduto"] ?></li>
 					<li>Tempo de entrega : <?php echo $linha["tempoentrega"] ?></li>
 					<li>Pre&ccedil;o unit&aacute;rio : <?php echo $linha["precounitario"] ?></li>
