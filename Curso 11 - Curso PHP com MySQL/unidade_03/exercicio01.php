@@ -31,6 +31,7 @@
 	<body>
 	<ul>
 		<?php
+			// Passo 4 - Listagem dos dados
 			while ( $registro = mysqli_fetch_assoc($categorias) ) {
 				?>
 				<li><?php echo $registro["nomeproduto"] ?></li>
@@ -38,9 +39,14 @@
 			}
 		?>
 	</ul>
+	<?php
+		// Passo 5 - Liberar dados da memoria
+		mysqli_free_result($categorias);
+	?>
 	</body>
 	</html>
 
 <?php
+	// Passo 6 - Fechar conexao
 	mysqli_close($conecta);
 ?>
