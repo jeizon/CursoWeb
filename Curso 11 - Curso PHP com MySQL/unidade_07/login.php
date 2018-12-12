@@ -4,8 +4,22 @@
 		$usuario = $_POST["usuario"];
 		$senha = $_POST["senha"];
 		
-		echo $usuario . "<br>";
-		echo $senha . "<br>";
+		$login = "select * ";
+		$login .= "from clientes ";
+		$login .= "where usuario =  '{$usuario}' and senha = '{$senha}' ";
+		
+		$acesso = mysqli_query($conecta, $login);
+		if ( !$acesso ) {
+			die("Falha na consulta ao banco ");
+		}
+		
+		$informacao = mysqli_fetch_assoc($acesso);
+		
+		if ( empty($informacao) ) {
+			$mensagem = "Login sem sucesso :'(";
+		} else {
+			header("location:listagem.php");
+		}
 	}
 ?>
 <!doctype html>
@@ -34,6 +48,14 @@
 					<input type="text" name="usuario" placeholder="Usuario">
 					<input type="password" name="senha" placeholder="Senha">
 					<input type="submit" value="Login">
+					
+					<?php
+						if ( isset($mensagem) ) {
+					?>
+						<p><?php echo $mensagem ?></p>
+					<?php
+						}
+					?>
 				</form>
 			</div>
             
