@@ -1,5 +1,11 @@
-<?php require_once("../../conexao/conexao.php"); ?>
-
+<?php require_once("../../db/conexao.php"); ?>
+<?php
+	if ( isset($_GET["codigo"]) ) {
+		$produto_id = $_GET["codigo"];
+	} else {
+		Header("Location: inicial.php");
+	}
+?>
 <!doctype html>
 <html>
     <head>
@@ -14,7 +20,9 @@
         <?php include_once("_incluir/topo.php"); ?>
         
         <main>  
-            
+			<?php
+				echo $produto_id;
+			?>
         </main>
 
         <?php include_once("_incluir/rodape.php"); ?>
