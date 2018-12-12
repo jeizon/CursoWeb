@@ -1,5 +1,14 @@
-<?php require_once("../../conexao/conexao.php"); ?>
+<?php require_once("../../db/conexao.php"); ?>
 
+<?php
+	// Consulta ao banco de dados
+	$produtos = "SELECT produtoID, nomeproduto, tempoentrega, precounitario, imagempequena ";
+	$produtos .= "FROM produtos ";
+	$resultado = mysqli_query($conecta, $produtos);
+	if (!$resultado) {
+		die("Falha na consulta ao banco. ");
+	}
+?>
 <!doctype html>
 <html>
     <head>
@@ -11,23 +20,25 @@
     </head>
 
     <body>
-        <header>
-            <div id="header_central">
-                <img src="assets/logo_andes.gif">
-                <img src="assets/text_bnwcoffee.gif">
-            </div>
-        </header>
+        <?php include_once ("_incluir/topo.php"); ?>
         
-        <main>  
-            
+        <main>
+			<?php
+				while($linha = mysqli_fetch_assoc($resultado)) {
+				
+			?>
+				<ul>
+					<li><?php echo $linha["nomeproduto"] ?></li>
+					<li>Tempo de entrega : <?php echo $linha["tempoentrega"] ?></li>
+					<li>Pre&ccedil;o unit&aacute;rio : <?php echo $linha["precounitario"] ?></li>
+				</ul>
+			<?php
+				}
+			?>
         </main>
 
-        <footer>
-            <div id="footer_central">
-                <p>ANDES &eacute; uma empresa fict&iacute;cia, usada para o curso PHP Integra&ccedil;&atilde;o com MySQL.</p>
-            </div>
-        </footer>
-    </body>
+		<?php include_once ("_incluir/rodape.php"); ?>
+	</body>
 </html>
 
 <?php
