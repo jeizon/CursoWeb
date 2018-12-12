@@ -5,6 +5,19 @@
 	} else {
 		Header("Location: inicial.php");
 	}
+	
+	// Consulta ao banco de dados
+	$consulta = "SELECT * ";
+	$consulta .= "FROM produtos ";
+	$consulta .= "WHERE produtoID = {$produto_id} ";
+	$detalhe = mysqli_query($conecta, $consulta);
+	
+	// Testar erro
+	if ( !$detalhe ) {
+		die("Falha no Banco de Dados. ");
+	} else {
+		$dados_detalhe = mysqli_fetch_assoc($detalhe);
+	}
 ?>
 <!doctype html>
 <html>
@@ -21,7 +34,7 @@
         
         <main>  
 			<?php
-				echo $produto_id;
+				print_r($dados_detalhe);
 			?>
         </main>
 
