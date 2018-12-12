@@ -14,7 +14,7 @@
 ?>
 <?php
 	// Passo 3 - Abrir consulta ao banco de dados
-	$consulta_categorias = "SELECT * FROM categorias";
+	$consulta_categorias = "SELECT nomeproduto FROM produtos";
 	$categorias = mysqli_query($conecta, $consulta_categorias);
 	
 	if ( !$categorias ) {
@@ -29,12 +29,15 @@
 	</head>
 	
 	<body>
-	<?php
-		while ( $registro = mysqli_fetch_assoc($categorias) ) {
-			print_r($registro);
-			echo "<br>";
-		}
-	?>
+	<ul>
+		<?php
+			while ( $registro = mysqli_fetch_assoc($categorias) ) {
+				?>
+				<li><?php echo $registro["nomeproduto"] ?></li>
+				<?php
+			}
+		?>
+	</ul>
 	</body>
 	</html>
 
