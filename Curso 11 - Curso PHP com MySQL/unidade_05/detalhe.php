@@ -36,6 +36,7 @@
         
         <!-- estilo -->
         <link href="_css/estilo.css" rel="stylesheet">
+		<link href="_css/produto_detalhe.css" rel="stylesheet">
     </head>
 
     <body>
@@ -44,14 +45,14 @@
         <main>
 			<div id="detalhe_produto">
 				<ul>
-					<li><img src="<?php echo $imagemgrande ?>"></li>
-					<li><?php echo $nomeproduto ?></li>
-					<li>Descricao: <?php echo $descricao ?></li>
-					<li>Codigo Barras: <?php echo $codigobarra ?></li>
-					<li>Entrega: <?php echo $tempoentrega ?></li>
-					<li><?php echo $precorevenda ?></li>
-					<li><?php echo $precounitario ?></li>
-					<li><?php echo $estoque ?></li>
+					<li class="imagem"><img src="<?php echo $imagemgrande ?>"></li>
+					<li><h2><?php echo $nomeproduto ?></h2></li>
+					<li><b>Descri&ccedil;&atilde;o : 	</b> <?php echo $descricao ?></li>
+					<li><b>C&oacute;digo de Barras : 	</b> <?php echo $codigobarra ?></li>
+					<li><b>Tempo de Entrega : 			</b> <?php echo $tempoentrega ?></li>
+					<li><b>Pre&ccedil;o Revenda : 		</b> <?php echo "R$ " . number_format($precorevenda,2,",",".") ?></li>
+					<li><b>Pre&ccedil;o Unit&aacute;rio : </b> <?php echo "R$ " . number_format($precounitario,2,",",".") ?></li>
+					<li><b>Estoque : 					</b> <?php echo $estoque ?></li>
 				</ul>
 			</div>
         </main>
