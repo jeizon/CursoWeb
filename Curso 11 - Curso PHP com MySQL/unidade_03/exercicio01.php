@@ -14,7 +14,7 @@
 ?>
 <?php
 	// Passo 3 - Abrir consulta ao banco de dados
-	$consulta_categorias = "SELECT * FROM categorias WHERE categoriaID > 2";
+	$consulta_categorias = "SELECT * FROM categorias";
 	$categorias = mysqli_query($conecta, $consulta_categorias);
 	
 	if ( !$categorias ) {
@@ -29,6 +29,12 @@
 	</head>
 	
 	<body>
+	<?php
+		while ( $registro = mysqli_fetch_assoc($categorias) ) {
+			print_r($registro);
+			echo "<br>";
+		}
+	?>
 	</body>
 	</html>
 
