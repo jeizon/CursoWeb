@@ -2,10 +2,25 @@
 <?php
 	// insercao no banco
 	if (isset($_POST["nometransportadora"])) {
-	print_r($_POST);
+		$nome			= $_POST["nometransportadora"];
+		$endereco		= $_POST["endereco"];
+		$telefone		= $_POST["telefone"];
+		$cidade		= $_POST["cidade"];
+		$estados		= $_POST["estados"];
+		$cep		= $_POST["cep"];
+		$cnpj		= $_POST["cnpj"];
+		
+		$inserir = "INSERT INTO transportadoras ";
+		$inserir .= "(nometransportadora,endereco,telefone,cidade,estadoID,cep,cnpj) ";
+		$inserir .= "VALUES ";
+		$inserir .= "('$nome','$endereco','$telefone','$cidade',$estados,'$cep','$cnpj') ";
+		
+		$operacao_inserir = mysqli_query($conecta,$inserir);
+		if (!$operacao_inserir) {
+			die("Erro no banco");
+		}
 	}
-	
-	
+ 
 	// selecao de estados
 	$select = "SELECT estadoID, nome ";
 	$select .= "FROM estados ";
