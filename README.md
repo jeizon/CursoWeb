@@ -19,6 +19,7 @@ Assista nossa aula de apresentação e conheça tudo que você vai aprender, cur
 - Curso PHP com Banco de Dados MySQL Avançado ( 41 aulas )
 - Curso PHP com AJAX ( 42 aulas )
 Total: 465 aulas.
+- OBS.: exercicios dos Cursos 11 e 12 estão na pasta do curso 11
 
 
 
