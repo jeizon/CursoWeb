@@ -12,14 +12,18 @@
 		UPLOAD_ERR_EXTENSION => "Uma extensão do PHP interrompeu o upload do arquivo."
 	);
 	if( isset($_POST["enviar"]) ) {
-		$num_erro = $_FILES['upload_file']['error'];
-		$mensagem = $array_erro[$num_erro];
-		echo "<pre>";
-		print_r($_FILES['upload_file']);
-		echo "</pre>";
-		echo "</hr>";
-		echo $mensagem;
+		$arquivo_temp = $_FILES['upload_file']['tmp_name'];
+		$arquivo = basename($_FILES['upload_file']['name']);
+		$diretorio = "uploads";
+		
+		if (move_uploaded_file($arquivo_temp,$diretorio . "/".$arquivo)) {
+			$mensagem = "Arquivo publicado";
+		} else {
+			$num_erro = $_FILES['upload_file']['error'];
+			$mensagem = $array_erro[$num_erro];
+		}
 	}
+		
 ?>
 <!doctype html>
 <html>
@@ -42,10 +46,15 @@
         
         <main>  
             <form action="upload.php" method="post" enctype="multipart/form-data">
-				<input type="hidden" name="MAX_FILE_SIZE" value="600000" >
+				<input type="hidden" name="MAX_FILE_SIZE" value="6000000" >
 				<input type="file" name="upload_file">
 				<input type="submit" name="enviar" value="publicar">
 			</form>
+			<?php
+				if (isset($mensagem)){
+					echo $mensagem;
+				}
+			?>
         </main>
 
         <?php include_once("_incluir/rodape.php"); ?>  
