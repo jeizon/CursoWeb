@@ -1,5 +1,21 @@
 o<?php require_once("../../db/conexao.php"); ?>
-
+<?php
+	
+	// Consulta a tabela de transportadoras
+	$tr = "SELECT * ";
+	$tr .= "FROM transportadoras ";
+	if(isset($_GET["codigo"]) ) {
+		$id = $_GET["codigo"];
+		$tr .= "WHERE transportadoraID = {$id} ";
+	} else {
+		$tr .= "WHERE transportadoraID = 1 ";
+	}
+	
+	$con_tr = mysqli_query($conecta,$tr);
+	if (!$con_tr) {
+		die("Erro na consulta");
+	}
+?>
 <!doctype html>
 <html>
     <head>
