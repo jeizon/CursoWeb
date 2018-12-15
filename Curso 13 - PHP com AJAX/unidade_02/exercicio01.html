@@ -3,6 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <title>Solicitacao</title>
+        <script>
+            var ajax = new XMLHttpRequest();
+            ajax.open('GET','dados.txt');
+            ajax.send();
+            ajax.onreadystatechange = function() {
+                if ( ajax.status == 200 ) {
+                    if (ajax.readyStage == 3) {
+                        console.log("Carregando");
+                    }
+                    if (ajax.readyStage == 4) {
+                        console.log("Carregou");
+                    }
+                }
+            }
+        </script>
     </head>
 
     <body>
