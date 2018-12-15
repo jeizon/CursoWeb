@@ -1,4 +1,4 @@
-<?php require_once("../../conexao/conexao.php"); ?>
+<?php require_once("../../db/conexao.php"); ?>
 <?php
     if( isset($_POST["nometransportadora"]) ) {
         $nome       = utf8_decode($_POST["nometransportadora"]);
