@@ -4,13 +4,14 @@
 	session_start( );
 	if ( !isset($_SESSION["user_portal"]) ) {
 		header("location:login.php");
+		exit;
 	}
 	// fim do teste de seguranca
 	
     if ( isset($_GET["codigo"]) ) {
         $produto_id = $_GET["codigo"];
     } else {
-        Header("Location: inicial.php");
+        Header("Location: listagem.php");
     }
 
     // Consulta ao banco de dados

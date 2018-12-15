@@ -1,5 +1,7 @@
 <?php require_once("../../db/conexao.php"); ?>
-
+<?php
+	session_start( );
+?>
 <!doctype html>
 <html>
     <head>
@@ -11,23 +13,14 @@
     </head>
 
     <body>
-        <header>
-            <div id="header_central">
-                <img src="assets/logo_andes.gif">
-                <img src="assets/text_bnwcoffee.gif">
-            </div>
-        </header>
+	<?php include_once("_incluir/topo.php"); ?>
         
         <main>  
             
         </main>
-
-        <footer>
-            <div id="footer_central">
-                <p>ANDES &eacute; uma empresa fict&iacute;cia, usada para o curso PHP Integra&ccedil;&atilde;o com MySQL.</p>
-            </div>
-        </footer>
-    </body>
+	
+	<?php include_once("_incluir/rodape.php"); ?>
+	</body>
 </html>
 
 <?php
