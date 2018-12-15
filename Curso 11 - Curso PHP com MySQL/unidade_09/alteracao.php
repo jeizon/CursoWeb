@@ -10,7 +10,23 @@
 		$cnpj			= $_POST["cnpj"];
 		$tID			= $_POST["transportadoraID"];
 		
-		print_r($nome);
+		// Objeto para alterar
+		$alterar = "UPDATE transportadoras ";
+		$alterar .= "SET ";
+		$alterar .= "nometransportadora = '{$nome}', ";
+		$alterar .= "endereco = '{$endereco}', ";
+		$alterar .= "telefone = '{$telefone}', ";
+		$alterar .= "cidade = '{$cidade}', ";
+		$alterar .= "estadoID = {$estados}, ";
+		$alterar .= "cep = '{$cep}', ";
+		$alterar .= "cnpj = '{$cnpj}' ";
+		$alterar .= "WHERE transportadoraID = {$tID}  ";
+		$operacao_alterar = mysqli_query($conecta,$alterar);
+		if (!$operacao_alterar) {
+			die("Erro na alteracao");
+		} else {
+			header("location:listagem.php");
+		}
 	}
 	// Consulta a tabela de transportadoras
 	$tr = "SELECT * ";
