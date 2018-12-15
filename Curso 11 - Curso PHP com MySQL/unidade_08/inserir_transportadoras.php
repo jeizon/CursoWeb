@@ -1,5 +1,14 @@
 <?php require_once("../../db/conexao.php"); ?>
+<?php
+	$select = "SELECT estadoID, nome ";
+	$select .= "FROM estados ";
+	$lista_estados = mysqli_query($conecta, $select);
+	if (!$lista_estados) {
+		die("Erro no banco");
+	}
 
+	
+?>
 <!doctype html>
 <html>
     <head>
@@ -22,9 +31,13 @@
 					<input type="text" name="telefone" placeholder="Telefone : ">
 					<input type="text" name="cidade" placeholder="Cidade : ">
 					<select name="estados">
-						<option value="1">Acre</option>
-						<option value="2">Amapa</option>
-						<option value="3">Amazonia</option>
+						<?php
+							while($linha = mysqli_fetch_assoc($lista_estados)) {
+						?>
+							<option value="1"><?php echo utf8_encode($linha["nome"]); ?></option>
+						<?php
+							}
+						?>
 					</select>
 					<input type="text" name="cep" placeholder="CEP : ">
 					<input type="text" name="cnpj" placeholder="CNPJ : ">
