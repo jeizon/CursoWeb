@@ -1,5 +1,11 @@
-<?php require_once("../../conexao/conexao.php"); ?>
-
+<?php require_once("../../db/conexao.php"); ?>
+<?php require_once("./_incluir/funcoes.php"); ?>
+<?php
+	if (isset($_POST['enviar'])) {
+		$retorno = enviarMensagem($_POST);
+		print_r($retorno);
+	}
+?>
 <!doctype html>
 <html>
     <head>
