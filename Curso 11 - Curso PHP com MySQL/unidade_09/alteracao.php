@@ -1,6 +1,17 @@
-o<?php require_once("../../db/conexao.php"); ?>
+<?php require_once("../../db/conexao.php"); ?>
 <?php
-	
+	if ( isset($_POST["nometransportadora"]) ) {
+		$nome			= utf8_decode($_POST["nometransportadora"]);
+		$endereco		= utf8_decode($_POST["endereco"]);
+		$telefone		= $_POST["telefone"];
+		$cidade			= utf8_decode($_POST["cidade"]);
+		$estados		= $_POST["estados"];
+		$cep			= $_POST["cep"];
+		$cnpj			= $_POST["cnpj"];
+		$tID			= $_POST["transportadoraID"];
+		
+		print_r($nome);
+	}
 	// Consulta a tabela de transportadoras
 	$tr = "SELECT * ";
 	$tr .= "FROM transportadoras ";
@@ -85,6 +96,7 @@ o<?php require_once("../../db/conexao.php"); ?>
 					<label for="cnpj">CPNJ</label>
 					<input type="text" value="<?php echo $info_tr["cnpj"]; ?>" name="cnpj" id="cnpj">
 					
+					<input type="hidden" name="transportadoraID" value="<?php echo $info_tr["transportadoraID"] ?>">
 					<input type="submit" value="Confirmar alteração">
 					
 				</form>
