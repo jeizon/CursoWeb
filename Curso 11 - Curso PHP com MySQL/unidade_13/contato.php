@@ -2,8 +2,11 @@
 <?php require_once("./_incluir/funcoes.php"); ?>
 <?php
 	if (isset($_POST['enviar'])) {
-		$retorno = enviarMensagem($_POST);
-		print_r($retorno);
+		if (enviarMensagem($_POST) ) {
+		$mensagem	= "Mensagem enviada com sucesso. ";
+		} else {
+			$mensagem = "Erro no envio.";
+		}
 	}
 ?>
 <!doctype html>

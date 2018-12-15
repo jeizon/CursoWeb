@@ -14,7 +14,9 @@
 		$mensagem			= "O usuário " . $nome_usuario . "enviou uma mensagem " . "<br>";
 		$mensagem			.= "email do usuário: " . $email_usuario . "<br>";
 		$mensagem			.= "Mensagem:" . "<br>";
-		$mensagem			.= $mensagem_usuario
+		$mensagem			.= $mensagem_usuario;
+		
+		return mail($destino, $assunto, $mensagem, $remetente);
 	}
 ?>
 
