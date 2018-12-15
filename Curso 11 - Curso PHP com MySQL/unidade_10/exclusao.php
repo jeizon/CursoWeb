@@ -14,7 +14,6 @@
 	}
 	
 	$info_transportadora = mysqli_fetch_assoc($con_transportadora);
-	print_r($info_transportadora);
 	// FIM Consulta a tabela de transportadoras
 ?>
 <!doctype html>
@@ -25,13 +24,30 @@
         
         <!-- estilo -->
         <link href="_css/estilo.css" rel="stylesheet">
+        <link href="_css/alteracao.css" rel="stylesheet">
     </head>
 
     <body>
         <?php include_once("_incluir/topo.php"); ?>
         
-        <main>  
-            
+        <main>
+			<div id="janela_formulario">
+				<form action="exclusao.php" method="post">
+					<h2>Exclusão de Transportadoras</h2>
+			
+					<label for="nometransportadora">Nome da Transportadora</label>
+					<input type="text" value="<?php echo utf8_encode($info_transportadora["nometransportadora"])  ?>" name="nometransportadora" id="nometransportadora">
+			
+					<label for="endereco">Endereço</label>
+					<input type="text" value="<?php echo utf8_encode($info_transportadora["endereco"])  ?>" name="endereco" id="endereco">
+			
+					<label for="cidade">Cidade</label>
+					<input type="text" value="<?php echo utf8_encode($info_transportadora["cidade"])  ?>" name="cidade" id="cidade">
+			
+					<input type="hidden" name="transportadoraID" value="<?php echo $info_transportadora["transportadoraID"] ?>">
+					<input type="submit" value="Confirmar exclusão">
+				</form>
+			</div>
         </main>
 
         <?php include_once("_incluir/rodape.php"); ?>  
