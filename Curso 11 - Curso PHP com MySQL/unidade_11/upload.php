@@ -1,5 +1,13 @@
 <?php require_once("../../db/conexao.php"); ?>
-
+<?php
+	if( isset($_POST["enviar"]) ) {
+		echo "<pre>";
+		print_r($_FILES['upload_file']);
+		echo "</pre>";
+		
+		echo $_FILES['upload_file']['name'];
+	}
+?>
 <!doctype html>
 <html>
     <head>
@@ -21,8 +29,8 @@
         
         <main>  
             <form action="upload.php" method="post" enctype="multipart/form-data">
-				<input type="file" name="upload_file" >
-				<input type="submit" value="Publicar" >
+				<input type="file" name="upload_file">
+				<input type="submit" name="enviar" value="publicar">
 			</form>
         </main>
 
