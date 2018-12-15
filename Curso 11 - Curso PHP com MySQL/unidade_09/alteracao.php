@@ -17,6 +17,14 @@ o<?php require_once("../../db/conexao.php"); ?>
 	}
 	
 	$info_tr = mysqli_fetch_assoc($con_tr);
+	
+	// Consulta aos estados
+	$estados = "SELECT * ";
+	$estados .= "FROM estados ";
+	$lista_estados = mysqli_query($conecta,$estados);
+	if (!$lista_estados) {
+		die("Erro no banco");
+	}
 ?>
 <!doctype html>
 <html>
@@ -41,16 +49,35 @@ o<?php require_once("../../db/conexao.php"); ?>
 					<input type="text" value="<?php echo utf8_encode($info_tr["nometransportadora"]); ?>" name="nometransportadora" id="nometransportadora">
 					
 					<label for="endereco">Endereço </label>
-					<input type="text" value="<?php echo $info_tr["endereco"]; ?>" name="endereco" id="endereco"">
+					<input type="text" value="<?php echo utf8_encode($info_tr["endereco"]); ?>" name="endereco" id="endereco"">
 					
 					<label for="telefone">Telefone</label>
 					<input type="text" value="<?php echo $info_tr["telefone"]; ?>" name="telefone" id="telefone">
 					
 					<label for="cidade">Cidade</label>
-					<input type="text" value="<?php echo $info_tr["cidade"]; ?>" name="cidade" id="cidade">
+					<input type="text" value="<?php echo utf8_encode($info_tr["cidade"]); ?>" name="cidade" id="cidade">
 					
 					<label for="estados">Estados</label>
 					<select id="estados" name="estados">
+						<?php
+							$meuestado = $info_tr["estadoID"];
+							while ($linha = mysqli_fetch_assoc($lista_estados)){
+								$estado_principal = $linha["estadoID"];
+								if ($meuestado == $estado_principal ) {
+						?>
+									<option value="<?php echo $linha["estadoID"] ?>" selected>
+										<?php echo utf8_encode($linha["nome"]) ?>
+									</option>
+						<?php
+								} else {
+						?>
+									<option value="<?php echo $linha["estadoID"] ?>">
+										<?php echo utf8_encode($linha["nome"]) ?>
+									</option>
+						<?php
+								}
+							}
+						?>
 					</select>
 					<label for="cep">CEP</label>
 					<input type="text" value="<?php echo $info_tr["cep"]; ?>" name="cep" id="cep">
