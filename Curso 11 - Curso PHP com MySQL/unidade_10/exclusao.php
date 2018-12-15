@@ -1,5 +1,20 @@
 <?php require_once("../../db/conexao.php"); ?>
 <?php
+	// Receber informaçoes
+	if( isset($_POST["nometransportadora"]) ) {
+		$tID = $_POST["transportadoraID"];
+		
+		//Excluir
+		$exclusao = "DELETE FROM transportadoras ";
+		$exclusao .= "WHERE transportadoraID = {$tID} ";
+		$con_exclusao = mysqli_query($conecta,$exclusao);
+		if ( !$con_exclusao) {
+			die("Registro não excluido");
+		} else {
+			header("location:listagem.php");
+		}
+		
+	}
 	// Consulta a tabela de transportadoras
 	$tr = "SELECT * ";
 	$tr .= "FROM transportadoras ";
