@@ -1,4 +1,4 @@
-<?php require_once("../../conexao/conexao.php"); ?>
+<?php require_once("../../db/conexao.php"); ?>
 <?php
     // tabela de transportadoras
     $tr = "SELECT * FROM transportadoras ";

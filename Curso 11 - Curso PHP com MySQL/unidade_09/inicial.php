@@ -1,4 +1,4 @@
-<?php require_once("../../conexao/conexao.php"); ?>
+<?php require_once("../../db/conexao.php"); ?>
 
 <!doctype html>
 <html>
@@ -13,8 +13,8 @@
     <body>
         <?php include_once("_incluir/topo.php"); ?>
         
-        <main>  
-            
+        <main>
+        
         </main>
 
         <?php include_once("_incluir/rodape.php"); ?>  
