@@ -15,6 +15,8 @@ o<?php require_once("../../db/conexao.php"); ?>
 	if (!$con_tr) {
 		die("Erro na consulta");
 	}
+	
+	$info_tr = mysqli_fetch_assoc($con_tr);
 ?>
 <!doctype html>
 <html>
@@ -34,26 +36,27 @@ o<?php require_once("../../db/conexao.php"); ?>
 			<div id="janela_formulario">
 				<form  action="alteracao.php" method="post">
 					<h2>Alteração de Transportadoras</h2>
+					
 					<label for="nometransportadora">Nome da Transportador</label>
-					<input type="text" value="" name="nometransportadora" id="nometransportadora">
+					<input type="text" value="<?php echo utf8_encode($info_tr["nometransportadora"]); ?>" name="nometransportadora" id="nometransportadora">
 					
 					<label for="endereco">Endereço </label>
-					<input type="text" value="" name="endereco" id="endereco"">
+					<input type="text" value="<?php echo $info_tr["endereco"]; ?>" name="endereco" id="endereco"">
 					
 					<label for="telefone">Telefone</label>
-					<input type="text" value="" name="telefone" id="telefone">
+					<input type="text" value="<?php echo $info_tr["telefone"]; ?>" name="telefone" id="telefone">
 					
 					<label for="cidade">Cidade</label>
-					<input type="text" value="" name="cidade" id="cidade">
+					<input type="text" value="<?php echo $info_tr["cidade"]; ?>" name="cidade" id="cidade">
 					
 					<label for="estados">Estados</label>
 					<select id="estados" name="estados">
 					</select>
 					<label for="cep">CEP</label>
-					<input type="text" value="" name="cep" id="cep">
+					<input type="text" value="<?php echo $info_tr["cep"]; ?>" name="cep" id="cep">
 					
 					<label for="cnpj">CPNJ</label>
-					<input type="text" value="" name="cnpj" id="cnpj">
+					<input type="text" value="<?php echo $info_tr["cnpj"]; ?>" name="cnpj" id="cnpj">
 					
 					<input type="submit" value="Confirmar alteração">
 					
