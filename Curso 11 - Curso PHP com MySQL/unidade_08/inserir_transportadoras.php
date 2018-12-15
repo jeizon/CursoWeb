@@ -2,10 +2,10 @@
 <?php
 	// insercao no banco
 	if (isset($_POST["nometransportadora"])) {
-		$nome			= $_POST["nometransportadora"];
-		$endereco		= $_POST["endereco"];
-		$telefone		= $_POST["telefone"];
-		$cidade		= $_POST["cidade"];
+		$nome			= utf8_decode($_POST["nometransportadora"]);
+		$endereco		= utf8_decode($_POST["endereco"]);
+		$telefone		= utf8_decode($_POST["telefone"]);
+		$cidade		= utf8_decode($_POST["cidade"]);
 		$estados		= $_POST["estados"];
 		$cep		= $_POST["cep"];
 		$cnpj		= $_POST["cnpj"];
