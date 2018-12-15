@@ -1,5 +1,12 @@
 <?php require_once("../../db/conexao.php"); ?>
 <?php
+	// insercao no banco
+	if (isset($_POST["nometransportadora"])) {
+	print_r($_POST);
+	}
+	
+	
+	// selecao de estados
 	$select = "SELECT estadoID, nome ";
 	$select .= "FROM estados ";
 	$lista_estados = mysqli_query($conecta, $select);
@@ -34,7 +41,9 @@
 						<?php
 							while($linha = mysqli_fetch_assoc($lista_estados)) {
 						?>
-							<option value="1"><?php echo utf8_encode($linha["nome"]); ?></option>
+							<option value="<?php echo utf8_encode($linha["estadoID"]); ?>">
+								<?php echo utf8_encode($linha["nome"]); ?>
+							</option>
 						<?php
 							}
 						?>
