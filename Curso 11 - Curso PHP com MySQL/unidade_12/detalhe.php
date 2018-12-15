@@ -1,4 +1,4 @@
-<?php require_once("../../conexao/conexao.php"); ?>
+<?php require_once("../../db/conexao.php"); ?>
 <?php
     if ( isset($_GET["codigo"]) ) {
         $produto_id = $_GET["codigo"];
@@ -46,7 +46,7 @@
             <div id="detalhe_produto">
                 <ul>
                     <li class="imagem"><img src="<?php echo $imagemgrande ?>"></li>
-                    <li><h2><?php echo $nomeproduto ?></h2></li>
+                    <li><h2><?php echo utf8_encode($nomeproduto) ?></h2></li>
                     <li><b>Descri&ccedil;&atilde;o: </b><?php echo $descricao ?></li>
                     <li><b>C&oacute;digo de Barra: </b><?php echo $codigobarra ?></li>
                     <li><b>Tempo de Entrega: </b><?php echo $tempoentrega ?></li>

@@ -1,4 +1,4 @@
-<?php require_once("../../conexao/conexao.php"); ?>
+<?php require_once("../../db/conexao.php"); ?>
 
 <?php
     // Determinar localidade BR
@@ -49,7 +49,7 @@
                             <img src="<?php echo $linha["imagempequena"] ?>">
                         </a>
                     </li>
-                    <li><h3><?php echo $linha["nomeproduto"] ?></h3></li>
+                    <li><h3><?php echo utf8_encode($linha["nomeproduto"]) ?></h3></li>
                     <li>Tempo de Entrega : <?php echo $linha["tempoentrega"] ?></li>
                     <li>Pre&ccedil;o unit&aacute;rio : <?php echo money_format('%.2n',$linha["precounitario"]) ?></li>
                 </ul>
